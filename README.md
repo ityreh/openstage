@@ -1,3 +1,3 @@
-# openstage
+# OpenStage
 
-OpenStage is an Open Source Integrated Developer Portal
+OpenStage is an Open Source Developer Portal
