@@ -2,3 +2,10 @@
 rabbitmq:
   username: user
   password: your_secure_password # BITTE ÄNDERN SIE DIESES PASSWORT IN DER PRODUKTION!
+### Default values for PostgreSQL Helm chart.
+postgresql:
+  username: user
+  password: password
+  database: mydb
+  image: postgres:16
+  port: 5432

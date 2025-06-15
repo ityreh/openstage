@@ -4,5 +4,10 @@ description: A Helm umbrella chart for OpenStage on Kubernetes
 type: application
 version: 0.1.0
 dependencies:
+  #TODO: switch to official RabbitMQ chart after tests
   - name: rabbitmq-chart
     version: 0.1.0
+  #TODO: switch to managed Cloud SQL after tests
+  - name: postgresql-chart
+    version: 0.1.0
+
