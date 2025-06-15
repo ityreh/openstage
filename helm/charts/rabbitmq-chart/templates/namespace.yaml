@@ -1,0 +1,11 @@
+# templates/namespace.yaml
+# {{- if .Values.namespace }}
+# apiVersion: v1
+# kind: Namespace
+# metadata:
+#   name: {{ .Values.namespace }}
+#   {{- with .Values.commonLabels }}
+#   labels:
+#     {{- toYaml . | nindent 4 }}
+#   {{- end }}
+# {{- end }}

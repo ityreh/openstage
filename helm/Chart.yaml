@@ -1,0 +1,8 @@
+apiVersion: v2
+name: openstage-umbrella-chart
+description: A Helm umbrella chart for OpenStage on Kubernetes
+type: application
+version: 0.1.0
+dependencies:
+  - name: rabbitmq-chart
+    version: 0.1.0

@@ -1,0 +1,41 @@
+# values.yaml
+# namespace: rabbitmq TODO: extra namespace?
+
+# RabbitMQ Image Configuration
+image:
+  repository: rabbitmq
+  tag: 3.13-management # Stellen Sie sicher, dass dies das Management-Image ist
+  pullPolicy: IfNotPresent
+
+# RabbitMQ Credentials (Base64 encoded for security, but handled by Helm)
+# Helm will automatically base64 encode these for the Secret.
+rabbitmq:
+  username: user
+  password: your_secure_password # BITTE ÄNDERN SIE DIESES PASSWORT IN DER PRODUKTION!
+
+# Persistence Configuration
+persistence:
+  enabled: true
+  size: 10Gi
+  storageClassName: "" # Optional: Wenn Sie eine spezifische StorageClass verwenden möchten, z.B. "standard" oder "premium-rwo"
+
+# Service Configuration
+service:
+  type: LoadBalancer # Oder ClusterIP, NodePort, je nach Bedarf
+  amqpPort: 5672
+  managementPort: 15672
+
+# Ressourcen-Anforderungen und -Limits für den RabbitMQ-Pod
+resources:
+  limits:
+    cpu: 500m
+    memory: 1Gi
+  requests:
+    cpu: 250m
+    memory: 512Mi
+
+# Zusätzliche Pod-Metadaten (z.B. Labels, Annotations)
+podAnnotations: {}
+
+# Zusätzliche Labels für alle Ressourcen
+commonLabels: {}

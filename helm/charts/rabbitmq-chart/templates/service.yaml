@@ -1,0 +1,24 @@
+# templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "rabbitmq-chart.fullname" . }}
+  namespace: {{ .Values.namespace }}
+  labels:
+    {{- include "rabbitmq-chart.labels" . | nindent 4 }}
+    {{- with .Values.commonLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+    {{- include "rabbitmq-chart.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: amqp
+      protocol: TCP
+      port: {{ .Values.service.amqpPort }}
+      targetPort: {{ .Values.service.amqpPort }}
+    - name: management
+      protocol: TCP
+      port: {{ .Values.service.managementPort }}
+      targetPort: {{ .Values.service.managementPort }}

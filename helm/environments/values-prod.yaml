@@ -1,0 +1,4 @@
+### PROD values for RabbitMQ Helm chart.
+rabbitmq:
+  username: user
+  password: your_secure_password # BITTE ÄNDERN SIE DIESES PASSWORT IN DER PRODUKTION!
